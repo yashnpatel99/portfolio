@@ -12,6 +12,17 @@ import {
   SiNextdotjs,
   SiSass,
 } from "react-icons/si";
+// Hero & backgrounds
+import yashImg from "./assets/yash.jpg";
+import bgImg from "./assets/background.png";
+// Projects
+import latitudeImg from "./assets/latitude.png";
+import designInviteImg from "./assets/designinvite.png";
+import opmEventsImg from "./assets/opmevents.png";
+import bizAppImg from "./assets/bizapp.png";
+import qadamImg from "./assets/qadam.png";
+import bkFriendlyImg from "./assets/bkfriendly.png";
+import keyStarImg from "./assets/keystar.png";
 
 export default function App() {
   const [activeSection, setActiveSection] = useState("home");
@@ -39,43 +50,43 @@ export default function App() {
 
   const projects = [
     {
-      image: "../src/assets/latitude.png",
+      image: latitudeImg,
       title: "Latitude Company Website",
       description:
         "Corporate website designed and developed for Latitude Technolabs, showcasing company services, culture, and expertise with a modern UI and responsive layout.",
     },
     {
-      image: "../src/assets/designinvite.png",
+      image: designInviteImg,
       title: "Design Invite",
       description:
         "An e-commerce platform for selling digital wedding invitation cards, photos, and videos with a smooth browsing experience and visually rich presentation.",
     },
     {
-      image: "../src/assets/opmevents.png",
+      image: opmEventsImg,
       title: "OPM Events",
       description:
         "Hotel and resort booking website built for event management, allowing users to explore venues, check availability, and make booking inquiries easily.",
     },
     {
-      image: "../src/assets/bizapp.png",
+      image: bizAppImg,
       title: "BizApp",
       description:
         "A content-driven platform providing the latest news, club updates, and announcements with an intuitive layout and fast-loading performance.",
     },
     {
-      image: "../src/assets/qadam.png",
+      image: qadamImg,
       title: "QADAM",
       description:
         "Article reading platform where all content is dynamically managed through an admin panel, enabling real-time updates and content moderation.",
     },
     {
-      image: "../src/assets/bkfriendly.png",
+      image: bkFriendlyImg,
       title: "BK Friendly Services",
       description:
         "Financial services website offering credit cards, home loans, car loans, and other financial products with a clean and trustworthy user interface.",
     },
     {
-      image: "../src/assets/keystar.png",
+      image: keyStarImg,
       title: "Key Star",
       description:
         "A platform for students to access lectures and take online exams. Features include video streaming, interactive quizzes, and performance tracking.",
@@ -158,7 +169,7 @@ export default function App() {
           {/* IMAGE */}
           <div className="relative group">
             <img
-              src="../src/assets/yash.jpg"
+              src={yashImg}
               alt="Yash Patel"
               className="w-full h-[360px] sm:h-[420px] md:h-[480px] lg:h-[520px] object-cover rounded-xl shadow-2xl grayscale transition-all duration-700 ease-out group-hover:grayscale-0"
             />
@@ -174,7 +185,10 @@ export default function App() {
         id="About"
         className="relative py-10 sm:py-28 border-t border-white/10"
       >
-        <div className=" absolute inset-0 bg-[url('../src/assets/background.png')] bg-no-repeat bg-center bg-cover pointer-events-none" />
+        <div
+          className="absolute inset-0 bg-no-repeat bg-center bg-cover pointer-events-none"
+          style={{ backgroundImage: `url(${bgImg})` }}
+        />
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-10 lg:gap-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
@@ -291,7 +305,10 @@ export default function App() {
         id="Projects"
         className="relative py-10 sm:py-20 sm:py-28 border-t border-white/10"
       >
-        <div className=" absolute inset-0 bg-[url('../src/assets/background.png')] bg-no-repeat bg-center bg-cover pointer-events-none" />
+        <div
+          className="absolute inset-0 bg-no-repeat bg-center bg-cover pointer-events-none"
+          style={{ backgroundImage: `url(${bgImg})` }}
+        />
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-14">
