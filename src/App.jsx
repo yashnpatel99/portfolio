@@ -2,6 +2,16 @@ import React, { useEffect, useRef, useState } from 'react';
 import './index.css';
 
 function App() {
+  const [theme, setTheme] = useState('dark');
+  const themeRef = useRef('dark');
+
+  useEffect(() => {
+    document.body.setAttribute('data-theme', theme);
+    themeRef.current = theme;
+  }, [theme]);
+
+  const toggleTheme = () => setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+
   const cursorRef = useRef(null);
   const followerRef = useRef(null);
   const canvasRef = useRef(null);
@@ -96,10 +106,13 @@ function App() {
       particles.forEach(p => {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        // Using the new rgb cyan blue (0,212,255) for accent particles
+        
+        const accentRgb = themeRef.current === 'dark' ? '0, 212, 255' : '37, 99, 235';
         ctx.fillStyle = p.isAccent
-          ? `rgba(0,212,255,${p.alpha})`
-          : `rgba(240,237,232,${p.alpha})`;
+          ? `rgba(${accentRgb},${p.alpha})`
+          : themeRef.current === 'dark' 
+             ? `rgba(240,237,232,${p.alpha})` 
+             : `rgba(8,8,8,${p.alpha})`;
         ctx.fill();
         p.x += p.vx;
         p.y += p.vy;
@@ -212,20 +225,53 @@ function App() {
       {/* NAVBAR */}
       <nav id="navbar">
         <a href="#home" className="nav-logo">YP<span>.</span></a>
-        <ul className="nav-links">
-          <li><a href="#home" className="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+          <ul className="nav-links">
+            <li><a href="#home" className="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          
+          <button 
+            onClick={toggleTheme} 
+            className="theme-btn" 
+            aria-label="Toggle Theme"
+            style={{
+              background: 'none', border: 'none', cursor: 'pointer',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              color: 'var(--accent)', transition: 'color 0.3s, transform 0.2s'
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+          >
+            {theme === 'dark' ? (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+            ) : (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            )}
+          </button>
+        </div>
       </nav>
 
       {/* HERO */}
       <section id="home">
         <canvas id="canvas-bg" ref={canvasRef}></canvas>
 
-        <div className="hero-eyebrow">Available for freelance · React Developer · Based in Ahmedabad</div>
+        <div className="hero-eyebrow">React Developer · Based in Ahmedabad</div>
 
         <h1 className="hero-name">
           <span className="line"><span className="glitch" data-text="YASH">YASH</span></span>
@@ -450,10 +496,10 @@ function App() {
               <span className="contact-line-label">Location</span>
               <span className="contact-line-value">Ahmedabad, Gujarat, India</span>
             </div>
-            <div className="contact-line">
+            {/* <div className="contact-line">
               <span className="contact-line-label">Status</span>
               <span className="contact-line-value" style={{ color: 'var(--accent)' }}>● Available for work</span>
-            </div>
+            </div> */}
           </div>
 
           <a href="mailto:yashnpatel99@gmail.com" className="email-link reveal reveal-delay-1">
