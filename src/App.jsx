@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./index.css";
+import yashImg from "./assets/yash.jpg";
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -340,22 +341,27 @@ function App() {
       <section id="home">
         <canvas id="canvas-bg" ref={canvasRef}></canvas>
 
-        <div className="hero-eyebrow">React Developer · Based in Ahmedabad</div>
+        <div className="hero-eyebrow">React & Next.js Developer · Based in Ahmedabad</div>
 
-        <h1 className="hero-name">
-          <span className="line">
-            <span className="glitch" data-text="YASH">
-              YASH
-            </span>
-          </span>
-          <span className="line">
-            <span>
-              <span className="accent-word glitch" data-text="PATEL">
-                PATEL
+        <div style={{ display: "flex", alignItems: "center", gap: "3rem", flexWrap: "wrap", justifyContent: "space-between" }}>
+          <h1 className="hero-name" style={{ margin: 0 }}>
+            <span className="line">
+              <span className="glitch" data-text="YASH">
+                YASH
               </span>
             </span>
-          </span>
-        </h1>
+            <span className="line">
+              <span>
+                <span className="accent-word glitch" data-text="PATEL">
+                  PATEL
+                </span>
+              </span>
+            </span>
+          </h1>
+          <div className="hero-image-wrapper">
+            <img src={yashImg} alt="Yash Patel" className="hero-image" />
+          </div>
+        </div>
 
         <div className="hero-sub">
           <p className="hero-desc">
@@ -406,7 +412,7 @@ function App() {
         <div className="about-right">
           <div className="exp-card reveal">
             <div className="exp-company">Latitude Technolabs Pvt. Ltd.</div>
-            <div className="exp-role">React Js Developer / Designer</div>
+            <div className="exp-role">React & Next Js Developer / Designer</div>
             <div className="exp-year">January 2024 — Present</div>
           </div>
 

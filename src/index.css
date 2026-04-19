@@ -169,7 +169,7 @@ nav.scrolled {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 0 3rem 5rem;
+  padding: 8rem 3rem 5rem;
   position: relative;
   overflow: hidden;
 }
@@ -226,6 +226,15 @@ nav.scrolled {
 
 .hero-name .accent-word {
   color: var(--accent);
+}
+
+.hero-image {
+  width: clamp(130px, 17vw, 270px);
+  height: clamp(130px, 17vw, 270px);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent);
+  box-shadow: 0 10px 40px rgba(var(--accent-rgb), 0.25);
 }
 
 .hero-sub {
@@ -940,7 +949,7 @@ footer {
   }
 
   #home {
-    padding: 0 1.5rem 4rem;
+    padding: 8rem 1.5rem 4rem;
   }
 
   #about {
