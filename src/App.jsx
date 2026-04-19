@@ -3,8 +3,8 @@ import "./index.css";
 import yashImg from "./assets/yash.jpg";
 
 function App() {
-  const [theme, setTheme] = useState("dark");
-  const themeRef = useRef("dark");
+  const [theme, setTheme] = useState("light");
+  const themeRef = useRef("light");
 
   useEffect(() => {
     document.body.setAttribute("data-theme", theme);
@@ -341,9 +341,19 @@ function App() {
       <section id="home">
         <canvas id="canvas-bg" ref={canvasRef}></canvas>
 
-        <div className="hero-eyebrow">React & Next.js Developer · Based in Ahmedabad</div>
+        <div className="hero-eyebrow">
+          React & Next.js Developer · Based in Ahmedabad
+        </div>
 
-        <div style={{ display: "flex", alignItems: "center", gap: "3rem", flexWrap: "wrap", justifyContent: "space-between" }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "3rem",
+            flexWrap: "wrap",
+            justifyContent: "space-between",
+          }}
+        >
           <h1 className="hero-name" style={{ margin: 0 }}>
             <span className="line">
               <span className="glitch" data-text="YASH">
