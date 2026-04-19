@@ -546,7 +546,7 @@ function App() {
             <p className="about-label reveal">/ Selected Work</p>
             <h2 className="section-title reveal reveal-delay-1">Projects</h2>
           </div>
-          <span className="project-count reveal">07 Works</span>
+          <span className="project-count reveal">08 Works</span>
         </div>
 
         <div className="projects-list">
